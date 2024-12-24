@@ -1,0 +1,14 @@
+# Base image
+FROM alpine:latest
+
+# Install SQLite
+RUN apk add --no-cache sqlite
+
+# Copy academic database into the container
+COPY academic.db /app/academic.db
+
+# Set the working directory
+WORKDIR /app
+
+# Start the SQLite shell
+CMD ["sqlite3", "/app/academic.db"]

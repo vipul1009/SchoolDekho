@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Query System</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', sans-serif;
+            background: linear-gradient(135deg, #6c63ff 0%, #9face6 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 800px; /* Increased max-width */
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #555;
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #correctedName {
+            color: #ff9800;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #results {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 14px;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        #results table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #results th, #results td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        #results th {
+            background-color: #f3f4f6;
+            color: #333;
+        }
+
+        #results tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        #results tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Welcome to the School Query System</h1>
+        
+        <label for="query">Enter Query:</label>
+        <input type="text" id="query" placeholder="Enter your query">
+
+        <label for="schoolName">Enter School Name (optional):</label>
+        <input type="text" id="schoolName" placeholder="Enter school name or 'nil'">
+
+        <button id="submitQueryButton">Submit Query</button>
+
+        <div id="correctedName"></div> <!-- Corrected school name message -->
+        <div id="results"></div>       <!-- Query results -->
+    </div>
+
+    <script>
+        document.getElementById('submitQueryButton').addEventListener('click', function() {
+            const userQuery = document.getElementById('query').value;
+            const schoolName = document.getElementById('schoolName').value;
+
+            fetch('/submit-query', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: userQuery, schoolName: schoolName })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const correctedNameDiv = document.getElementById('correctedName');
+                const resultsDiv = document.getElementById('results');
+
+                // Check for corrected school name and display it
+                if (data.correctedSchoolName && data.correctedSchoolName !== schoolName && schoolName.toLowerCase() !== "nil") {
+                    correctedNameDiv.innerHTML = `Showing results for: <span>${data.correctedSchoolName}</span>`;
+                } else {
+                    correctedNameDiv.innerHTML = ''; // Clear the message if no correction
+                }
+
+                // Display results or error message
+                if (data.success) {
+                    resultsDiv.innerHTML = data.data;  // Display results as HTML table
+                } else {
+                    resultsDiv.innerHTML = '<p>' + data.error + '</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('results').innerHTML = '<p>An error occurred while processing your query.</p>';
+            });
+        });
+    </script>
+</body>
+</html>

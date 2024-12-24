@@ -1,0 +1,44 @@
+# version: '3'
+# services:
+#   sqlite_service:
+#     build: .
+#     container_name: sqlite_dbs
+#     volumes:
+#       - ./demographics.db:/app/demographics.db
+#       - ./academic.db:/app/academic.db
+#       - ./facilities.db:/app/facilities.db
+#     stdin_open: true
+#     tty: true  # Keeps the container running
+
+
+version: '3'
+services:
+  demographics_db:
+    build:
+      context: .
+      dockerfile: Dockerfile.demographics
+    container_name: demographics_container
+    volumes:
+      - ./demographics.db:/app/demographics.db
+    stdin_open: true
+    tty: true
+
+  academic_db:
+    build:
+      context: .
+      dockerfile: Dockerfile.academic
+    container_name: academic_container
+    volumes:
+      - ./academic.db:/app/academic.db
+    stdin_open: true
+    tty: true
+
+  facilities_db:
+    build:
+      context: .
+      dockerfile: Dockerfile.facilities
+    container_name: facilities_container
+    volumes:
+      - ./facilities.db:/app/facilities.db
+    stdin_open: true
+    tty: true

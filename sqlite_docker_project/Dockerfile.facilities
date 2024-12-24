@@ -1,0 +1,14 @@
+# Base image
+FROM alpine:latest
+
+# Install SQLite
+RUN apk add --no-cache sqlite
+
+# Copy facilities database into the container
+COPY facilities.db /app/facilities.db
+
+# Set the working directory
+WORKDIR /app
+
+# Start the SQLite shell
+CMD ["sqlite3", "/app/facilities.db"]

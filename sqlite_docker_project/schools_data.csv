@@ -1,0 +1,51 @@
+school_id,name,state,campus_size,student_population,established_year,school_type
+1,Schoolhekhde 1,Delhi,7.43,2371,1992,Public
+2,School 2,Karnataka,3.35,2193,1950,Private
+3,School 3,,7.96,2487,2002,Private
+4,School 4,Delhi,9.33,1741,2005,Private
+5,,Telangana,9.42,1848,2005,International
+6,School 6,Telangana,3.17,2528,1973,International
+7,School 7,Karnataka,3.9,905,2019,Public
+8,School 8,Delhi,2.54,1750,1984,Public
+9,School 9,Tamil Nadu,9.57,1343,1954,International
+10,School 10,Gujarat,4.43,1934,2011,Public
+11,School 11,Karnataka,2.56,1257,1991,Public
+12,School 12,Gujarat,8.06,2514,1964,Private
+13,School 13,Maharashtra,1.02,434,1997,International
+14,School 14,Telangana,,1776,2010,Public
+15,School 15,Karnataka,2.06,322,2006,International
+16,School 16,Maharashtra,,544,2002,Private
+17,School 17,Telangana,3.35,1287,1998,Public
+18,School 18,Maharashtra,3.57,2685,1998,International
+19,School 19,Tamil Nadu,8.5,2881,1952,Private
+20,School 20,Delhi,9.5,1227,1957,Public
+21,School 21,Telangana,4.07,811,1974,Public
+22,School 22,Tamil Nadu,1.23,2965,2020,Public
+23,School 23,Tamil Nadu,1.98,1033,1988,Public
+24,School 24,Delhi,7.83,1219,1983,International
+25,School 25,Delhi,2.0,1471,1959,International
+26,School 26,Karnataka,3.63,1491,2003,Public
+27,School 27,Maharashtra,,1864,1995,Private
+28,School 28,Karnataka,3.29,1323,2019,Public
+29,School 29,Telangana,2.0,1767,1989,International
+30,School 30,Telangana,,246,1998,Public
+31,School 31,Tamil Nadu,3.21,372,2017,Public
+32,School 32,Gujarat,1.98,2223,1958,Private
+33,School 33,Gujarat,1.79,378,1967,Public
+34,School 34,Gujarat,4.12,2724,2005,Public
+35,School 35,Tamil Nadu,5.13,966,1979,Public
+36,School 36,Maharashtra,9.71,2626,1955,International
+37,School 37,Delhi,2.31,874,1982,Private
+38,School 38,Gujarat,4.1,2398,2020,International
+39,School 39,Telangana,5.66,1905,1977,Private
+40,School 40,Delhi,7.85,1518,1974,Public
+41,School 41,Telangana,3.86,594,2003,Private
+42,School 42,Karnataka,2.72,1866,1979,International
+43,School 43,,7.36,448,1988,Public
+44,School 44,Delhi,5.59,1831,1960,International
+45,School 45,Gujarat,3.86,1786,1965,Public
+46,School 46,Karnataka,1.45,1133,1974,Public
+47,School 47,Gujarat,8.1,2328,1951,Private
+48,School 48,Telangana,9.91,2269,2000,International
+49,School 49,Telangana,3.9,857,2000,Public
+50,School 50,Maharashtra,7.3,706,1961,Public

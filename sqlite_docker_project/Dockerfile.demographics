@@ -1,0 +1,16 @@
+
+
+# Base image
+FROM alpine:latest
+
+# Install SQLite
+RUN apk add --no-cache sqlite
+
+# Copy demographics database into the container
+COPY demographics.db /app/demographics.db
+
+# Set the working directory
+WORKDIR /app
+
+# Start the SQLite shell
+CMD ["sqlite3", "/app/demographics.db"]
